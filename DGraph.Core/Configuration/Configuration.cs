@@ -22,9 +22,9 @@ namespace DGraph.Core.Configuration
             ApplicationFilePaths = applicationFilePaths.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
             if (!string.IsNullOrEmpty(includedEntries))
-                IncludedTypes = includedEntries.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                IncludedTypes = includedEntries.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
             if (!string.IsNullOrEmpty(excludedEntries))
-                ExcludedTypes = excludedEntries.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                ExcludedTypes = excludedEntries.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
         }
 
         public IList<string> Applications { get; private set; }

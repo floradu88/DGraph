@@ -20,12 +20,16 @@ namespace DGraph.Tests.Integration
             //arrange
             var applicationList = new List<string>() { "app1", "app2" };
             var applicationFilePaths = new List<string>() { @"\\localhost\d$\logs1", @"\\serverWithLongName.domain.com\Logs" };
+            var includedTypes = new List<string>() { "*.*" };
+            var excludedTypes = new List<string>() { "bin", "obj" };
 
             //act
 
             //assert
             Assert.That(_configuration.Applications, Is.EqualTo(applicationList));
             Assert.That(_configuration.ApplicationFilePaths, Is.EqualTo(applicationFilePaths));
+            Assert.That(_configuration.IncludedTypes, Is.EqualTo(includedTypes));
+            Assert.That(_configuration.ExcludedTypes, Is.EqualTo(excludedTypes));
         }
     }
 }
