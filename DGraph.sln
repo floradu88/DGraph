@@ -10,15 +10,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1323EF
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Web", "DGraph.Web\DGraph.Web.csproj", "{404EEC7A-DFB6-4202-92C5-939568B7F2CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Web", "src\DGraph.Web\DGraph.Web.csproj", "{404EEC7A-DFB6-4202-92C5-939568B7F2CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Core", "DGraph.Core\DGraph.Core.csproj", "{868EB62F-36FB-447A-A768-6A15A65A570C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Core", "src\DGraph.Core\DGraph.Core.csproj", "{868EB62F-36FB-447A-A768-6A15A65A570C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Tests", "DGraph.Tests\DGraph.Tests.csproj", "{7BC2CE02-FCD0-4E56-9309-10CDDF9D8E4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Tests", "src\DGraph.Tests\DGraph.Tests.csproj", "{7BC2CE02-FCD0-4E56-9309-10CDDF9D8E4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Config", "DGraph.Config\DGraph.Config.csproj", "{E650DACA-513B-43BD-BA20-82ED16CCE27B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Config", "src\DGraph.Config\DGraph.Config.csproj", "{E650DACA-513B-43BD-BA20-82ED16CCE27B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.ConsoleApp", "DGraph.ConsoleApp\DGraph.ConsoleApp.csproj", "{5001B172-4149-4BBB-BDBE-0B3801FB6208}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.ConsoleApp", "src\DGraph.ConsoleApp\DGraph.ConsoleApp.csproj", "{5001B172-4149-4BBB-BDBE-0B3801FB6208}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
