@@ -8,7 +8,7 @@ Scans projects from different paths and extracts dependency graph and displays t
 - Create `c:\mongodb\data\db`
 - Run `setupMongoDb.ps1`
   - Or install it as a service: https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/#configure-a-windows-service-for-mongodb
-- Run the setup.ps1 script.
+- Run the `setup.ps1` script.
 - Update the app.config and web.config files with the servers and applications you want.
 - Import your logs using the DGraph.ConsoleApp program.
 
