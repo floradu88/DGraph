@@ -16,7 +16,7 @@ namespace DGraph.Core.Configuration
         {
             get
             {
-                return 410;
+                return 1405;
             }
         }
     }

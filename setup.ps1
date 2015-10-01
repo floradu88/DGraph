@@ -2,9 +2,9 @@ $ErrorActionPreference = "Stop"
 
 $solutionFile      = "DGraph.sln"
 $configuration     = "Debug"
-$platform          = "Mixed Platforms"
+$platform          = "Any CPU"
 $msbuild           = "C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
-$configTool        = ".\DGraph.Config\bin\Debug\DGraph.Config.exe"
+$configTool        = ".\src\DGraph.Config\bin\Debug\DGraph.Config.exe"
 
 # Install nuget to restore
 Write-Host "Installing Nuget." -ForegroundColor Green
@@ -48,5 +48,5 @@ else
 # Done
 Write-host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor DarkYellow
 Write-Host "Setup complete." -ForegroundColor Green
-Write-host "- Site: http://localhost:410/"
+Write-host "- Site: http://localhost:1405/"
 Write-host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor DarkYellow
