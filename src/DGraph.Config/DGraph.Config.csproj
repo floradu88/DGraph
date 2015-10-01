@@ -36,11 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IisConfiguration, Version=1.0.5710.23613, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IisConfiguration.1.0.5710.23613\lib\net451\IisConfiguration.dll</HintPath>
+      <HintPath>..\..\packages\IisConfiguration.1.0.5710.23613\lib\net451\IisConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Web.Administration.7.0.0.0\lib\net20\Microsoft.Web.Administration.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.Web.Administration.7.0.0.0\lib\net20\Microsoft.Web.Administration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
