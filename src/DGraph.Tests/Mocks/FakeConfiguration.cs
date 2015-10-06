@@ -7,8 +7,6 @@ namespace DGraph.Tests.Mocks
     {
         public FakeEmptyConfiguration() :
             base(new NameValueCollection())
-        {
-
-        }
+        { }
     }
 }
