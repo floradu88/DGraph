@@ -14,6 +14,7 @@ namespace DGraph.Core.Repository
         private readonly IConfiguration _configuration;
         private readonly IMongoDatabase _database;
         private readonly IMongoCollection<Dependency> _collection;
+        private readonly string _databaseName;
 
         public DependencyRepository(MongoClient mongoClient, IConfiguration configuration, string databaseName = "DGraph")
         {
@@ -21,6 +22,7 @@ namespace DGraph.Core.Repository
             _configuration = configuration;
             _database = _mongoClient.GetDatabase(databaseName);
             _collection = _database.GetCollection<Dependency>("Dependency");
+            _databaseName = databaseName;
         }
 
         public void Save(Dependency entry)
@@ -36,17 +38,22 @@ namespace DGraph.Core.Repository
         public void DeleteAll()
         {
             // This should be used for imports, to ensure the data directory doesn't bloat.
-            DropDatabase("DGraph");
+            DropDatabase();
         }
 
-        public async void DropDatabase(string databaseName = "DGraph")
+        public async void DropDatabase()
         {
-            await _mongoClient.DropDatabaseAsync(databaseName);
+            await _mongoClient.DropDatabaseAsync(_databaseName);
         }
 
-        public void DeleteCollection(string collectionName = "DGraph")
+        public void DeleteCollection()
         {
-            _database.DropCollectionAsync(collectionName);
+            _database.DropCollectionAsync(_databaseName);
+        }
+
+        public IQueryable<Dependency> SearchDependecies()
+        {
+            return _collection.AsQueryable<Dependency>();
         }
     }
 }

@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 namespace DGraph.Tests.Integration
 {
+    [TestFixture]
     public class ConfigurationTests
     {
         private IConfiguration _configuration;

@@ -5,6 +5,7 @@
         Import = 0,
         Dll = 1,
         Nuget = 2,
-        Include = 3
+        Include = 3,
+        Project = 5
     }
 }
