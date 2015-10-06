@@ -12,13 +12,13 @@ namespace DGraph.Tests.Unit
         [Test]
         public void should_throw_exception_for_empty_configuration()
         {
-            Assert.Throws<InvalidOperationException>(() => new FakeEmptyConfiguration());
+            Assert.Throws<InvalidOperationException>(() => new FakeEmptyConfiguration().Initialize());
         }
 
         [Test]
         public void should_throw_exception_for_null_configuration()
         {
-            Assert.Throws<ArgumentNullException>(() => new Configuration(null));
+            Assert.Throws<ArgumentNullException>(() => new Configuration(null).Initialize());
         }
 
         [Test]
@@ -27,7 +27,7 @@ namespace DGraph.Tests.Unit
             var appSettings = new NameValueCollection();
             appSettings["applications"] = null;
 
-            Assert.Throws<InvalidOperationException>(() => new Configuration(appSettings));
+            Assert.Throws<InvalidOperationException>(() => new Configuration(appSettings).Initialize());
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace DGraph.Tests.Unit
             appSettings["applications"] = "app1";
             appSettings["applicationFilePaths"] = null;
 
-            Assert.Throws<InvalidOperationException>(() => new Configuration(appSettings));
+            Assert.Throws<InvalidOperationException>(() => new Configuration(appSettings).Initialize());
         }
     }
 }

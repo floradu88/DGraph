@@ -8,5 +8,7 @@ namespace DGraph.Core.Configuration
         IList<string> ApplicationFilePaths { get; }
         IList<string> IncludedTypes { get; }
         IList<string> ExcludedTypes { get; }
+
+        void Initialize();
     }
 }

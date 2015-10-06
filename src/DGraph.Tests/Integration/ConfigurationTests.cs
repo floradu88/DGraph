@@ -13,6 +13,7 @@ namespace DGraph.Tests.Integration
         public void Setup()
         {
             _configuration = new Configuration();
+            _configuration.Initialize();
         }
 
         [Test]

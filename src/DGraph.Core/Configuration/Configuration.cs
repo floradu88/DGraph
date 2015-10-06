@@ -21,11 +21,9 @@ namespace DGraph.Core.Configuration
             {
                 throw new ArgumentNullException("config");
             }
-
-            initialize();
         }
 
-        private void initialize()
+        public void Initialize()
         {
             var applications = _config["applications"];
             var applicationFilePaths = _config["applicationFilePaths"];

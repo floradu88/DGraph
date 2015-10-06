@@ -35,6 +35,9 @@
     <Reference Include="ByteSizeLib">
       <HintPath>..\..\packages\ByteSize.1.1.0\lib\portable-net4+sl5+netcore45+wp8+MonoAndroid1+MonoTouch1\ByteSizeLib.dll</HintPath>
     </Reference>
+    <Reference Include="CommandLine">
+      <HintPath>..\..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="MongoDB.Bson">
       <HintPath>..\..\packages\MongoDB.Bson.2.1.0-rc0\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -68,6 +71,8 @@
     <Compile Include="Configuration\IConfiguration.cs" />
     <Compile Include="Domain\Dependency.cs" />
     <Compile Include="Domain\DependencyEnum.cs" />
+    <Compile Include="Import\Options.cs" />
+    <Compile Include="Import\Runner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DependencyRepository.cs" />
     <Compile Include="Repository\IDependencyRepository.cs" />
