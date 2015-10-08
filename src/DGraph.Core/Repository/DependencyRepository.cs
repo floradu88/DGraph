@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DGraph.Core.Domain;
 using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 using DGraph.Core.Configuration;
 
 namespace DGraph.Core.Repository
@@ -37,7 +35,6 @@ namespace DGraph.Core.Repository
 
         public void DeleteAll()
         {
-            // This should be used for imports, to ensure the data directory doesn't bloat.
             DropDatabase();
         }
 
