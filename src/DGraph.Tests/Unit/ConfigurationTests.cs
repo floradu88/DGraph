@@ -1,8 +1,8 @@
-﻿using DGraph.Core.Configuration;
+﻿using System;
+using System.Collections.Specialized;
+using DGraph.Core.Configuration;
 using DGraph.Tests.Mocks;
 using NUnit.Framework;
-using System;
-using System.Collections.Specialized;
 
 namespace DGraph.Tests.Unit
 {

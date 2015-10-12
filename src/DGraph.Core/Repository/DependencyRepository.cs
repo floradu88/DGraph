@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DGraph.Core.Configuration;
 using DGraph.Core.Domain;
 using MongoDB.Driver;
-using DGraph.Core.Configuration;
 
 namespace DGraph.Core.Repository
 {

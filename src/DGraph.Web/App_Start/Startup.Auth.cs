@@ -1,10 +1,10 @@
 ﻿using System;
+using DGraph.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using DGraph.Web.Models;
 
 namespace DGraph.Web
 {

@@ -1,6 +1,6 @@
-﻿using DGraph.Core.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using DGraph.Core.Domain;
 
 namespace DGraph.Core.Repository
 {

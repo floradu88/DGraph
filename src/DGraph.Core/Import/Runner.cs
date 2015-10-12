@@ -1,7 +1,7 @@
-﻿using DGraph.Core.Configuration;
+﻿using CommandLine;
+using DGraph.Core.Configuration;
 using DGraph.Core.Repository;
 using MongoDB.Driver;
-using System;
 
 namespace DGraph.Core.Import
 {
@@ -26,7 +26,7 @@ namespace DGraph.Core.Import
         public string Run(string[] args)
         {
             var options = new Options();
-            bool result = CommandLine.Parser.Default.ParseArguments(args, options);
+            bool result = Parser.Default.ParseArguments(args, options);
 
             if (result == false)
             {

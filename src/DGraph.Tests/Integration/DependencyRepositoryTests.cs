@@ -1,12 +1,12 @@
-﻿using DGraph.Core.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using DGraph.Core.Configuration;
 using DGraph.Core.Domain;
 using DGraph.Core.Repository;
 using MongoDB.Driver;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Linq;
 
 namespace DGraph.Tests.Integration
 {

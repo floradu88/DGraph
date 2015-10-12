@@ -1,5 +1,5 @@
-﻿using DGraph.Core.Configuration;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
+using DGraph.Core.Configuration;
 
 namespace DGraph.Tests.Mocks
 {

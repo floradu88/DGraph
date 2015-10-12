@@ -1,7 +1,8 @@
-﻿using Microsoft.Owin;
+﻿using DGraph.Web;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(DGraph.Web.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 namespace DGraph.Web
 {
     public partial class Startup

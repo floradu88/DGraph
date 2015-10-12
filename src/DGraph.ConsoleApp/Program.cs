@@ -1,5 +1,6 @@
-﻿using DGraph.Core.Import;
-using System;
+﻿using System;
+using DGraph.Core.Import;
+
 namespace DGraph.ConsoleApp
 {
     class Program
