@@ -7,7 +7,6 @@ namespace DGraph.Core.Import
 {
     internal class Options
     {
-
         [Option('p', "path", Required = false, HelpText = "Start import from root folder. Will consider the first level under root as an application")]
         public string RootPath { get; set; }
 

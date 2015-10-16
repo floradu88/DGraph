@@ -12,15 +12,15 @@ namespace DGraph.Core.Import
         private readonly IConfiguration _configuration;
 
         public Runner()
+            : this(new Configuration.Configuration(), new DependencyRepository(new MongoClient(), new Configuration.Configuration()))
         {
-            _configuration = new Configuration.Configuration();
-            _repository = new DependencyRepository(new MongoClient(), _configuration);
         }
 
         internal Runner(IConfiguration configuration, IDependencyRepository repository)
         {
             _configuration = configuration;
             _repository = repository;
+            _configuration.Initialize();
         }
 
         public string Run(string[] args)

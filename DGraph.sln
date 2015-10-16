@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.Config", "src\DGraph
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.ConsoleApp", "src\DGraph.ConsoleApp\DGraph.ConsoleApp.csproj", "{5001B172-4149-4BBB-BDBE-0B3801FB6208}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E970F90E-443A-4C65-AE25-A00B47BBE259}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DGraph.ConsoleApp.Tests", "src\DGraph.ConsoleApp.Tests\DGraph.ConsoleApp.Tests.csproj", "{58E0DF6B-B125-4FBE-B0C1-F4BA7D003E0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,8 +50,16 @@ Global
 		{5001B172-4149-4BBB-BDBE-0B3801FB6208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5001B172-4149-4BBB-BDBE-0B3801FB6208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5001B172-4149-4BBB-BDBE-0B3801FB6208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58E0DF6B-B125-4FBE-B0C1-F4BA7D003E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58E0DF6B-B125-4FBE-B0C1-F4BA7D003E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58E0DF6B-B125-4FBE-B0C1-F4BA7D003E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58E0DF6B-B125-4FBE-B0C1-F4BA7D003E0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BC2CE02-FCD0-4E56-9309-10CDDF9D8E4C} = {E970F90E-443A-4C65-AE25-A00B47BBE259}
+		{58E0DF6B-B125-4FBE-B0C1-F4BA7D003E0D} = {E970F90E-443A-4C65-AE25-A00B47BBE259}
 	EndGlobalSection
 EndGlobal
