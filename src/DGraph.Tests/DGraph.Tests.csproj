@@ -59,6 +59,8 @@
     <Compile Include="Integration\ConfigurationTests.cs" />
     <Compile Include="Integration\DependencyRepositoryTests.cs" />
     <Compile Include="Mocks\FakeConfiguration.cs" />
+    <Compile Include="Integration\SearchFileManagerTests.cs" />
+    <Compile Include="Mocks\FakeEmptyConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit\ConfigurationTests.cs" />
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿using System;
-using DGraph.Core.Import;
+﻿using DGraph.Core.Import;
 using NUnit.Framework;
 
 namespace DGraph.ConsoleApp.Tests

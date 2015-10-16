@@ -1,6 +1,6 @@
 ﻿using IisConfiguration.Configuration;
 
-namespace DGraph.Core.Configuration
+namespace DGraph.Config
 {
     public class WebConfiguration : EnvironmentalConfig
     {

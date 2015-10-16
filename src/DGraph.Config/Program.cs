@@ -3,7 +3,7 @@ using IisConfiguration;
 using IisConfiguration.Logging;
 using Microsoft.Web.Administration;
 
-namespace DGraph.Core.Configuration
+namespace DGraph.Config
 {
     class Program
     {

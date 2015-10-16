@@ -1,12 +1,46 @@
-﻿using System.Collections.Specialized;
+using System.Collections.Generic;
 using DGraph.Core.Configuration;
 
 namespace DGraph.Tests.Mocks
 {
-    internal class FakeEmptyConfiguration : Configuration, IConfiguration
+    class FakeConfiguration : IConfiguration
     {
-        public FakeEmptyConfiguration() :
-            base(new NameValueCollection())
-        { }
+        private readonly string _path;
+        private readonly string _includedFiles;
+
+        public FakeConfiguration(string path = null, string includedFiles = "*.*")
+        {
+            this._path = path;
+            this._includedFiles = includedFiles;
+        }
+
+        public IList<string> Applications
+        {
+            get
+            {
+                return new List<string>() { "app1" };
+            }
+        }
+        public IList<string> ApplicationFilePaths
+        {
+            get
+            {
+                return new List<string>() { _path };
+            }
+        }
+
+        public IList<string> IncludedTypes
+        {
+            get
+            {
+                return new List<string> {_includedFiles};
+            }
+        }
+
+        public IList<string> ExcludedTypes { get; private set; }
+
+        public void Initialize()
+        {
+        }
     }
 }
