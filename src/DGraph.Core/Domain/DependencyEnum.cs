@@ -2,10 +2,11 @@
 {
     public enum DependencyEnum
     {
-        Import = 0,
-        Dll = 1,
-        Nuget = 2,
-        Include = 3,
-        Project = 5
+        None = 0,
+        Project = 1,
+        Import = 2,
+        Dll = 3,
+        Nuget = 4,
+        Include = 5,
     }
 }

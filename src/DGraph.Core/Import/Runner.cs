@@ -1,5 +1,9 @@
-﻿using CommandLine;
+﻿using System;
+using System.Linq;
+using CommandLine;
 using DGraph.Core.Configuration;
+using DGraph.Core.Domain;
+using DGraph.Core.IO;
 using DGraph.Core.Repository;
 using MongoDB.Driver;
 
@@ -8,19 +12,23 @@ namespace DGraph.Core.Import
 
     public class Runner
     {
-        private readonly IDependencyRepository _repository;
         private readonly IConfiguration _configuration;
+        private readonly IDependencyRepository _repository;
+        private readonly ISearchFileManager _searchFileManager;
 
         public Runner()
-            : this(new Configuration.Configuration(), new DependencyRepository(new MongoClient(), new Configuration.Configuration()))
         {
+            _configuration = new Configuration.Configuration();
+            _repository = new DependencyRepository(new MongoClient(), new Configuration.Configuration());
+            _searchFileManager = new SearchFileManager(_configuration);
         }
 
-        internal Runner(IConfiguration configuration, IDependencyRepository repository)
+        public Runner(IConfiguration configuration, IDependencyRepository repository, ISearchFileManager searchFileManager)
+            : this()
         {
             _configuration = configuration;
             _repository = repository;
-            _configuration.Initialize();
+            _searchFileManager = searchFileManager;
         }
 
         public string Run(string[] args)
@@ -42,14 +50,41 @@ namespace DGraph.Core.Import
 
                 if (!string.IsNullOrEmpty(options.RootPath))
                 {
-                    //var logReader = new FileSystemLogReader(_configuration);
-                    //var containerList = new List<ServerLogFileContainer>();
+                    var files = _searchFileManager.Search(true);
+
+                    var dependencies = files.Select(
+                        entry =>
+                            new Dependency()
+                            {
+                                SourcePath = _configuration.ApplicationFilePaths.First(),
+                                ApplicationName = _configuration.Applications.First(),
+                                DateTime = DateTime.Now,
+                                Id = Guid.NewGuid(),
+                                Type = GetDependencyType(entry)
+                            });
+
+                    _repository.BulkSave(dependencies);
 
                     return "imported folder " + options.RootPath;
                 }
 
                 return "done";
             }
+        }
+
+        private DependencyEnum GetDependencyType(string entry)
+        {
+            if (string.IsNullOrEmpty(entry))
+                return DependencyEnum.None;
+
+            entry = entry.ToLower();
+
+            if (entry.EndsWith("package.config"))
+            {
+                return DependencyEnum.Nuget;
+            }
+
+            return DependencyEnum.None;
         }
     }
 }

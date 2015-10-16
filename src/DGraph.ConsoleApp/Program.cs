@@ -1,5 +1,7 @@
 ﻿using System;
+using DGraph.Core.Configuration;
 using DGraph.Core.Import;
+using DGraph.Core.Repository;
 
 namespace DGraph.ConsoleApp
 {

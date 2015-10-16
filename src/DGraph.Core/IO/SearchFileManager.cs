@@ -8,27 +8,27 @@ namespace DGraph.Core.IO
     {
         public const string AllPattern = "*.*";
 
-        private readonly Configuration.IConfiguration configuration;
+        public readonly Configuration.IConfiguration Configuration;
 
         public SearchFileManager(Configuration.IConfiguration configuration)
         {
-            this.configuration = configuration;
+            this.Configuration = configuration;
 
-            this.configuration.Initialize();
+            this.Configuration.Initialize();
         }
 
         public List<string> Search(bool recursive = false)
         {
             IList<string> patterns = new List<string> { AllPattern };
 
-            if (configuration.IncludedTypes.Any())
+            if (Configuration.IncludedTypes.Any())
             {
-                patterns = configuration.IncludedTypes;
+                patterns = Configuration.IncludedTypes;
             }
 
             List<string> results = new List<string>();
 
-            foreach (var path in configuration.ApplicationFilePaths)
+            foreach (var path in Configuration.ApplicationFilePaths)
             {
                 if (Directory.Exists(path))
                 {

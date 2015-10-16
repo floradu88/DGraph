@@ -7,7 +7,7 @@ namespace DGraph.Core.Configuration
 {
     public class Configuration : IConfiguration
     {
-        private NameValueCollection _config;
+        private readonly NameValueCollection _config;
 
         public Configuration()
             : this(ConfigurationManager.AppSettings)
@@ -21,6 +21,7 @@ namespace DGraph.Core.Configuration
             {
                 throw new ArgumentNullException("config");
             }
+            Initialize();
         }
 
         public void Initialize()
