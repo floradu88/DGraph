@@ -43,5 +43,29 @@ namespace DGraph.Tests.Integration
             Assert.That(files, Is.Not.Empty);
             Assert.IsTrue(files.All(x => x.EndsWith(".cs")));
         }
+
+        [Test]
+        public void should_search_included_file_types_in_a_specific_folder_recursively()
+        {
+            IConfiguration configuration = new FakeConfiguration("c:\\code", "*.cs;*.js");
+            ISearchFileManager searchFileManager = new SearchFileManager(configuration);
+
+            List<string> files = searchFileManager.Search(true);
+
+            Assert.That(files, Is.Not.Empty);
+            Assert.IsTrue(files.All(x => x.EndsWith(".cs") || x.EndsWith(".js")));
+        }
+
+        [Test]
+        public void should_search_package_config_in_a_specific_folder_recursively()
+        {
+            IConfiguration configuration = new FakeConfiguration("c:\\code", "packages.config");
+            ISearchFileManager searchFileManager = new SearchFileManager(configuration);
+
+            List<string> files = searchFileManager.Search(true);
+
+            Assert.That(files, Is.Not.Empty);
+            Assert.IsTrue(files.All(x => x.EndsWith("packages.config")));
+        }
     }
 }

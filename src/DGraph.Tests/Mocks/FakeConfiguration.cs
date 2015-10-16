@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using DGraph.Core.Configuration;
 
 namespace DGraph.Tests.Mocks
@@ -6,12 +8,12 @@ namespace DGraph.Tests.Mocks
     class FakeConfiguration : IConfiguration
     {
         private readonly string _path;
-        private readonly string _includedFiles;
+        private readonly List<string> _includedFiles;
 
         public FakeConfiguration(string path = null, string includedFiles = "*.*")
         {
             this._path = path;
-            this._includedFiles = includedFiles;
+            this._includedFiles = includedFiles.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 
         public IList<string> Applications
@@ -33,7 +35,7 @@ namespace DGraph.Tests.Mocks
         {
             get
             {
-                return new List<string> {_includedFiles};
+                return _includedFiles;
             }
         }
 
