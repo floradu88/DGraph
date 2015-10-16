@@ -1,0 +1,30 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Search Dependencies";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <form class="navbar-form navbar-left" role="search">
+        <div class="form-group col-md-12">
+            <label for="keywords">Keywords: </label>
+            <input type="text" class="form-control" placeholder="Search keywords" name="keywords" id="keywords" />
+        </div>
+        <br />
+        <div class="form-group col-md-12">
+            <label for="name">Name: </label>
+            <input type="text" class="form-control" placeholder="Search keywords" name="keywords" id="name" />
+        </div>
+        <br />
+        <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-default form-control">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>No results</h2>
+    </div>
+</div>
