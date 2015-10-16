@@ -65,7 +65,7 @@ namespace DGraph.Tests.Integration
             entryList.Add(new Dependency() { ApplicationName = applicationName, DateTime = DateTime.Now, Id = Guid.NewGuid(), SourcePath = sourcePath, Type = DependencyEnum.Project });
 
             _dependencyRepository.BulkSave(entryList);
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
 
             //assert
             var dependencies = _dependencyRepository.SearchDependecies();
@@ -90,12 +90,13 @@ namespace DGraph.Tests.Integration
             //act
             Assert.That(dependencies, Is.Not.Empty);
 
-            _dependencyRepository.DeleteCollection();
+            _dependencyRepository.DropDatabase();
+            Thread.Sleep(1000);
 
             dependencies = _dependencyRepository.SearchDependecies();
 
             //act
-            Assert.That(dependencies, Is.Not.Empty);
+            Assert.That(dependencies, Is.Empty);
         }
     }
 }

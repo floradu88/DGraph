@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using DGraph.Core.Configuration;
 using DGraph.Core.Domain;
 using MongoDB.Driver;
@@ -41,11 +42,6 @@ namespace DGraph.Core.Repository
         public async void DropDatabase()
         {
             await _mongoClient.DropDatabaseAsync(_databaseName);
-        }
-
-        public void DeleteCollection()
-        {
-            _database.DropCollectionAsync(_databaseName);
         }
 
         public IQueryable<Dependency> SearchDependecies()

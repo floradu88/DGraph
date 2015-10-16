@@ -14,6 +14,6 @@ namespace DGraph.Core.Repository
 
         void BulkSave(IEnumerable<Dependency> entries);
 
-        void DeleteCollection();
+        void DropDatabase();
     }
 }
