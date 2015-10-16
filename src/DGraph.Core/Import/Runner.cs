@@ -52,18 +52,14 @@ namespace DGraph.Core.Import
                 {
                     var files = _searchFileManager.Search(true);
 
-                    var dependencies = files.Select(
-                        entry =>
-                            new Dependency()
-                            {
-                                SourcePath = _configuration.ApplicationFilePaths.First(),
-                                ApplicationName = _configuration.Applications.First(),
-                                DateTime = DateTime.Now,
-                                Id = Guid.NewGuid(),
-                                Type = GetDependencyType(entry)
-                            });
-
-                    _repository.BulkSave(dependencies);
+                    foreach (var file in files)
+                    {
+                        var dependencyExtractor = new PackageConfigDependencyExtractor(file);
+                        _repository.BulkSave(dependencyExtractor.Dependencies());
+#if DEBUG
+                        Console.WriteLine("Extracted dependencies from file: {0}", file);
+#endif
+                    }
 
                     return "imported folder " + options.RootPath;
                 }

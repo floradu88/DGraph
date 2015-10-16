@@ -33,9 +33,9 @@ namespace DGraph.Core.IO
                 var element = elemList[i];
                 if (element != null && element.Attributes != null)
                 {
-                    string packageName = element.Attributes["id"].Value;
-                    string packageVersion = element.Attributes["version"].Value;
-                    string packageTarget = element.Attributes["targetFramework"].Value;
+                    string packageName = getElementAtribute(element, "id");
+                    string packageVersion = getElementAtribute(element, "version");
+                    string packageTarget = getElementAtribute(element, "targetFramework");
 
                     result.Add(new Dependency()
                     {
@@ -51,6 +51,23 @@ namespace DGraph.Core.IO
             }
 
             return result;
+        }
+
+        private string getElementAtribute(XmlNode element, string attribute)
+        {
+            if (element == null)
+                return null;
+
+            if (string.IsNullOrEmpty(attribute))
+                return null;
+
+            if (element.Attributes == null)
+                return null;
+
+            if (element.Attributes[attribute] == null)
+                return null;
+
+            return element.Attributes[attribute].Value;
         }
     }
 }
