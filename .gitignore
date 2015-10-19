@@ -198,3 +198,5 @@ FakesAssemblies/
 # ncrunch
 *.ncrunchsolution
 *.ncrunchproject
+search.js
+search.js.map
