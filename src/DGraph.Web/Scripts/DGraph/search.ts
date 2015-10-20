@@ -16,11 +16,9 @@
             this.initialize();
         }
 
-        getRequestData(): string {
-            var requestData: string = $("#search-form").serialize();
-
-            console.log(requestData);
-
+        getRequestData(that): string {
+            var self = that;
+            var requestData: string = $(self.context).serialize();
             return requestData;
         }
 
@@ -34,18 +32,20 @@
         submitSearchForm(e, that): boolean {
             var self = that;
             e.preventDefault();
-            var data: string = self.getRequestData();
+            var data: string = self.getRequestData(that.context);
             $.ajax({
                 url: "/Search/Search?" + data,
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
+                contentType: "text/html",
+                dataType: "text",
                 async: true,
                 type: "GET",
                 error: (xhr: JQueryXHR, status: string, message: string) => {
                     console.log("something bad happended: " + message);
                 }
-            }).done((data) => {
-                    console.log("Done with the request " + data.Keywords);
+            }).done((result) => {
+                    debugger;
+                    $("#results")
+                        .html(result);
                 });
 
             return false;

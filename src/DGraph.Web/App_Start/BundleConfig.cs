@@ -24,6 +24,10 @@ namespace DGraph.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new Bundle("~/bundles/search").Include(
+                    "~/Scripts/DGraph/search.js",
+                    "~/Scripts/entry-point.js"));
         }
     }
 }

@@ -1,18 +1,27 @@
 ﻿using System.Web.Mvc;
+using DGraph.Core.Repository;
 
 namespace DGraph.Web.Controllers
 {
     public class SearchController : Controller
     {
+        private readonly IDependencyRepository _dependencyRepository;
+
+        public SearchController(IDependencyRepository dependencyRepository)
+        {
+            _dependencyRepository = dependencyRepository;
+        }
+
         // GET: Search
         public ActionResult Index()
         {
             return View();
         }
 
-        public JsonResult Search(SearchViewModel model)
+        public PartialViewResult Search(SearchViewModel model)
         {
-            return Json(model, JsonRequestBehavior.AllowGet);
+            var dependencies = _dependencyRepository.SearchDependecies();
+            return PartialView("Search", dependencies);
         }
     }
 
