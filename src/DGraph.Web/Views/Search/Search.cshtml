@@ -7,12 +7,14 @@
         foreach (var item in Model)
         {
             <div class="row">
-                <div class="col-md-2 col-lg-2">@(item.ApplicationName ?? "N/A")</div>
-                <div class="col-md-2 col-lg-2">@item.Id</div>
-                <div class="col-md-2 col-lg-2">@(item.TargetFramework ?? "N/A")</div>
-                <div class="col-md-2 col-lg-2">@item.Type</div>
-                <div class="col-md-2 col-lg-2">@(item.Version ?? "N/A")</div>
-                <div class="col-md-2 col-lg-2">@item.DateTime</div>
+                <div class="col-md-12 col-lg-12">
+                    <div class="col-md-2 col-lg-2">@(item.ApplicationName ?? "N/A")</div>
+                    <div class="col-md-2 col-lg-2">@item.Id</div>
+                    <div class="col-md-2 col-lg-2">@(item.TargetFramework ?? "N/A")</div>
+                    <div class="col-md-2 col-lg-2">@item.Type</div>
+                    <div class="col-md-2 col-lg-2">@(item.Version ?? "N/A")</div>
+                    <div class="col-md-2 col-lg-2">@item.DateTime</div>
+                </div>
             </div>
         }
     }
