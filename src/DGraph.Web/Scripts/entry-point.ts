@@ -5,7 +5,7 @@ var search: DGraph.Search;
 
 $(document).ready(() => {
     try {
-        search = new DGraph.Search($("body"), jQuery);
+        search = new DGraph.Search($("#search-form"), jQuery);
     }
     catch (e) {
         //aaaa

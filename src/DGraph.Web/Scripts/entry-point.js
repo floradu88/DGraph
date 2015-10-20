@@ -3,7 +3,7 @@
 var search;
 $(document).ready(function () {
     try {
-        search = new DGraph.Search($("body"), jQuery);
+        search = new DGraph.Search($("#search-form"), jQuery);
     }
     catch (e) {
     }

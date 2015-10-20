@@ -9,5 +9,16 @@ namespace DGraph.Web.Controllers
         {
             return View();
         }
+
+        public JsonResult Search(SearchViewModel model)
+        {
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+    }
+
+    public class SearchViewModel
+    {
+        public string Keywords { get; set; }
+        public string Name { get; set; }
     }
 }

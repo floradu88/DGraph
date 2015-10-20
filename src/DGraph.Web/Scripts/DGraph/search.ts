@@ -1,5 +1,6 @@
 ﻿module DGraph {
     "use strict";
+
     export class Search {
         private keywords: string;
         private name: string;
@@ -15,26 +16,27 @@
             this.initialize();
         }
 
-        initialize(): void {
-            $("#keywords", this.context).val(this.keywords);
-            $("#name", this.context).val(this.name);
+        getRequestData(): string {
+            var requestData: string = $("#search-form").serialize();
 
-            $(this.context).on('submit', this.submitSearchForm);
-        }
-
-        getRequestData(): any {
-            var requestData: any = {
-                keywords: $("#keywords", this.context).val(),
-                name: $("#name", this.context).val()
-            };
+            console.log(requestData);
 
             return requestData;
         }
 
-        submitSearchForm(): boolean {
+        initialize(): void {
+            $("#Keywords", this.context).val(this.keywords);
+            $("#Name", this.context).val(this.name);
+
+            $("#submit", this.context).on('click', (e) => this.submitSearchForm(e, this));
+        }
+
+        submitSearchForm(e, that): boolean {
+            var self = that;
+            e.preventDefault();
+            var data: string = self.getRequestData();
             $.ajax({
-                url: "/Search/Search",
-                data: () => this.getRequestData(),
+                url: "/Search/Search?" + data,
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 async: true,
@@ -42,8 +44,8 @@
                 error: (xhr: JQueryXHR, status: string, message: string) => {
                     console.log("something bad happended: " + message);
                 }
-            }).done(() => {
-                    console.log("Done with the request");
+            }).done((data) => {
+                    console.log("Done with the request " + data.Keywords);
                 });
 
             return false;
