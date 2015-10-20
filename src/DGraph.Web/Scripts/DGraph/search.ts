@@ -4,14 +4,18 @@
     export class Search {
         private keywords: string;
         private name: string;
+        private page: number;
+        private totalPages: number;
         private context: JQuery;
         private $: JQueryStatic;
 
         constructor(context: JQuery, $: JQueryStatic) {
-            this.keywords = "jquery mvc";
-            this.name = "jquery";
+            this.keywords = "";
+            this.name = "";
             this.context = context;
             this.$ = $;
+            this.page = 1;
+            this.totalPages = 1;
 
             this.initialize();
         }
@@ -23,16 +27,40 @@
         }
 
         initialize(): void {
-            $("#Keywords", this.context).val(this.keywords);
-            $("#Name", this.context).val(this.name);
+            var self = this;
+            $("#Keywords", this.context).val(self.keywords);
+            $("#Name", this.context).val(self.name);
 
-            $("#submit", this.context).on('click', (e) => this.submitSearchForm(e, this));
+            $("#submit", this.context).on('click', (e) => self.submitSearchForm(e, self.context));
+            $("#results").on('click', "#nextPage", () => self.nextPage(self));
+            $("#results").on('click', "#prevPage", () => self.prevPage(self));
         }
 
-        submitSearchForm(e, that): boolean {
-            var self = that;
+        prevPage(self): void {
+            if (self.page > 1) {
+                self.page--;
+                self.search(self.context);
+            }
+        }
+
+        nextPage(self): void {
+            if (self.page < self.totalPages) {
+                self.page++;
+                self.search(self.context);
+            }
+        }
+
+        submitSearchForm(e: any, context: JQuery): boolean {
+            var self = this;
             e.preventDefault();
-            var data: string = self.getRequestData(that.context);
+            self.search(context);
+
+            return false;
+        }
+
+        search(context: JQuery): void {
+            var self = this;
+            var data: string = self.getRequestData(context);
             $.ajax({
                 url: "/Search/Search?" + data,
                 contentType: "text/html",
@@ -46,8 +74,6 @@
                     if (result !== null)
                         $("#results").html(result);
                 });
-
-            return false;
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿@using DGraph.Core.Domain;
-@model IQueryable<Dependency>
+﻿@model DGraph.Web.Controllers.SearchResultModel
 
 <div class="row">
-    @if (Model != null)
+    @if (Model != null && Model.Results != null)
     {
-        foreach (var item in Model)
+        foreach (var item in Model.Results)
         {
             <div class="row">
                 <div class="col-md-12 col-lg-12">
@@ -17,5 +16,18 @@
                 </div>
             </div>
         }
+    }
+</div>
+<div class="row">
+    @if (Model != null && Model.Search != null)
+    {
+        <div class="col-md-3">
+            <button class="btn" id="prevPage"><<</button>
+        </div>
+        <div class="col-md-3"><label>Page:</label> @Model.Search.Page</div>
+        <div class="col-md-3"><label>Rows:</label> @Model.Search.Rows</div>
+        <div class="col-md-3">
+            <button class="btn" id="nextPage">>></button>
+        </div>
     }
 </div>
