@@ -43,9 +43,8 @@
                     console.log("something bad happended: " + message);
                 }
             }).done((result) => {
-                    debugger;
-                    $("#results")
-                        .html(result);
+                    if (result !== null)
+                        $("#results").html(result);
                 });
 
             return false;
