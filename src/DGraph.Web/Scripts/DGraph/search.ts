@@ -15,7 +15,7 @@
             this.context = context;
             this.$ = $;
             this.page = 1;
-            this.totalPages = 1;
+            this.totalPages = parseInt($("#TotalPages", $(this.context)).val());
 
             this.initialize();
         }
@@ -31,49 +31,28 @@
             $("#Keywords", this.context).val(self.keywords);
             $("#Name", this.context).val(self.name);
 
-            $("#submit", this.context).on('click', (e) => self.submitSearchForm(e, self.context));
             $("#results").on('click', "#nextPage", () => self.nextPage(self));
             $("#results").on('click', "#prevPage", () => self.prevPage(self));
         }
 
         prevPage(self): void {
-            if (self.page > 1) {
+            debugger;
+            self.page = parseInt($("#Page", $(self.context)).val());
+            if (self.page < self.totalPages) {
                 self.page--;
-                self.search(self.context);
+                $("#Page", $(self.context)).val(self.page);
+                $(self.context).submit();
             }
         }
 
         nextPage(self): void {
+            debugger;
+            self.page = parseInt($("#Page", $(self.context)).val());
             if (self.page < self.totalPages) {
                 self.page++;
-                self.search(self.context);
+                $("#Page", $(self.context)).val(self.page);
+                $(self.context).submit();
             }
-        }
-
-        submitSearchForm(e: any, context: JQuery): boolean {
-            var self = this;
-            e.preventDefault();
-            self.search(context);
-
-            return false;
-        }
-
-        search(context: JQuery): void {
-            var self = this;
-            var data: string = self.getRequestData(context);
-            $.ajax({
-                url: "/Search/Search?" + data,
-                contentType: "text/html",
-                dataType: "text",
-                async: true,
-                type: "GET",
-                error: (xhr: JQueryXHR, status: string, message: string) => {
-                    console.log("something bad happended: " + message);
-                }
-            }).done((result) => {
-                    if (result !== null)
-                        $("#results").html(result);
-                });
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using DGraph.Core.Domain;
-using DGraph.Web.Models;
 
-namespace DGraph.Web.Controllers
+namespace DGraph.Web.Models
 {
     public class SearchResultModel
     {
@@ -10,6 +9,7 @@ namespace DGraph.Web.Controllers
         public SearchViewModel Search { get; set; }
         public int Page { get; set; }
         public int Rows { get; set; }
+        public int TotalPages { get; set; }
 
         public SearchResultModel()
         {
@@ -17,6 +17,7 @@ namespace DGraph.Web.Controllers
             Search = new SearchViewModel();
             Page = 1;
             Rows = 10;
+            TotalPages = 10;
         }
     }
 }

@@ -17,14 +17,14 @@ namespace DGraph.Web.Controllers
         // GET: Search
         public ActionResult Index()
         {
-            return View();
+            return View(new SearchResultModel());
         }
 
         public ActionResult Search(SearchViewModel model)
         {
             var dependencies = _dependencyRepository.SearchDependecies();
 
-            SearchResultModel result = new SearchResultModel() { Results = dependencies.ToList(), Search = model };
+            SearchResultModel result = new SearchResultModel() { Results = dependencies.ToList(), Search = model, Page = model.Page, Rows = model.Rows, TotalPages = 10 };
             return View("Index", result);
         }
     }

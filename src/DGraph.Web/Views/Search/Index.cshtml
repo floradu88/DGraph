@@ -1,4 +1,4 @@
-﻿@model DGraph.Web.Controllers.SearchResultModel
+﻿@model DGraph.Web.Models.SearchResultModel
 
 @{
     ViewBag.Title = "Search Dependencies";
@@ -9,16 +9,17 @@
     <form class="col-md-12" role="search" id="search-form" action="@Url.Action("Search")">
         @Html.HiddenFor(model => model.Page)
         @Html.HiddenFor(model => model.Rows)
+        @Html.HiddenFor(model => model.TotalPages)
         <div class="form-group col-md-12">
             <label for="Keywords">Keywords: </label>
-            <input type="text" class="form-control" placeholder="Search keywords" name="Keywords" id="Keywords"/>
+            <input type="text" class="form-control" placeholder="Search keywords" name="Keywords" id="Keywords" />
         </div>
         <div class="form-group col-md-12">
             <label for="Name">Name: </label>
-            <input type="text" class="form-control" placeholder="Search by name" name="Name" id="Name"/>
+            <input type="text" class="form-control" placeholder="Search by name" name="Name" id="Name" />
         </div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div class="form-group col-md-12">
             <button type="submit" class="btn btn-default form-control" id="submit">Submit</button>
         </div>
@@ -36,3 +37,6 @@
 <div class="row" id="results">
     @Html.Partial("Search", Model)
 </div>
+@section scripts{
+    <script src="@Url.Content("~/bundles/search")" type="text/javascript"></script>
+}
