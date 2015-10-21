@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model DGraph.Web.Controllers.SearchResultModel
 
 @{
     ViewBag.Title = "Search Dependencies";
@@ -6,19 +6,21 @@
 
 <h2>@ViewBag.Title</h2>
 <div class="row">
-    <form class="col-md-12" role="search" id="search-form">
+    <form class="col-md-12" role="search" id="search-form" action="@Url.Action("Search")">
+        @Html.HiddenFor(model => model.Page)
+        @Html.HiddenFor(model => model.Rows)
         <div class="form-group col-md-12">
             <label for="Keywords">Keywords: </label>
-            <input type="text" class="form-control" placeholder="Search keywords" name="Keywords" id="Keywords" />
+            <input type="text" class="form-control" placeholder="Search keywords" name="Keywords" id="Keywords"/>
         </div>
         <div class="form-group col-md-12">
             <label for="Name">Name: </label>
-            <input type="text" class="form-control" placeholder="Search by name" name="Name" id="Name" />
+            <input type="text" class="form-control" placeholder="Search by name" name="Name" id="Name"/>
         </div>
-        <br />
-        <br />
+        <br/>
+        <br/>
         <div class="form-group col-md-12">
-            <button type="button" class="btn btn-default form-control" id="submit">Submit</button>
+            <button type="submit" class="btn btn-default form-control" id="submit">Submit</button>
         </div>
     </form>
 </div>
@@ -32,10 +34,5 @@
     <div class="col-md-2 col-lg-2"><label>DateTime</label></div>
 </div>
 <div class="row" id="results">
-    <div class="row col-lg-12 col-md-12">
-        <h2>No results</h2>
-    </div>
+    @Html.Partial("Search", Model)
 </div>
-@section scripts{
-    <script src="@Url.Content("~/bundles/search")" type="text/javascript"></script>
-}

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using DGraph.Core.Repository;
+using DGraph.Web.Models;
 
 namespace DGraph.Web.Controllers
 {
@@ -19,26 +20,12 @@ namespace DGraph.Web.Controllers
             return View();
         }
 
-        public PartialViewResult Search(SearchViewModel model)
+        public ActionResult Search(SearchViewModel model)
         {
             var dependencies = _dependencyRepository.SearchDependecies();
 
             SearchResultModel result = new SearchResultModel() { Results = dependencies.ToList(), Search = model };
-            return PartialView("Search", result);
-        }
-    }
-
-    public class SearchViewModel
-    {
-        public string Keywords { get; set; }
-        public string Name { get; set; }
-        public int Page { get; set; }
-        public int Rows { get; set; }
-
-        public SearchViewModel()
-        {
-            Page = 1;
-            Rows = 10;
+            return View("Index", result);
         }
     }
 }
